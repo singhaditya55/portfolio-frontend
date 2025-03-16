@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Navbar from "../components/Navbar"; 
 
 export default function About() {
   const [user, setUser] = useState(null);
@@ -44,22 +45,12 @@ export default function About() {
   }, []);
 
   return (
-    <div className="bg-gray-900 min-h-screen text-white">
+    <div className="bg-black min-h-screen text-white">
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full bg-black shadow-md py-4">
-        <div className="max-w-6xl mx-auto flex justify-between items-center px-6">
-          <h1 className="text-2xl font-bold text-white"></h1>
-          <ul className="flex space-x-6 text-lg">
-            <li><a href="/" className="hover:text-gray-400 transition">Home</a></li>
-            <li><a href="/about" className="text-blue-400">About</a></li>
-            <li><a href="/projects" className="hover:text-gray-400 transition">Projects</a></li>
-            <li><a href="/contact" className="hover:text-gray-400 transition">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Centered Content */}
-      <div className="max-w-12xl mx-auto pt-24 p-6 bg-gradient-to-b from-green-900 to-gray-800">
+      <div className="max-w-7xl mx-auto pt-24 p-6 bg-gradient-to-b from-green-900 to-gray-800">
         {user ? (
           <div>
             {/* Profile Section */}
