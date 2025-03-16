@@ -4,21 +4,19 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Hobbies from "./pages/Hobbies";
-import Navbar from "./components/Navbar";  // ✅ Ensure this path is correct
-import Footer from "./components/Footer";  // ✅ Ensure this path is correct
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <div className="pt-20">
+      {/* <div className="pt-10"> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/hobbies" element={<Hobbies />} />
         </Routes>
-      </div>
+      {/* </div> */}
       <Footer />
     </BrowserRouter>
   );

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="bg-blue-600 p-4 text-white fixed w-full top-0">
+    <nav className="bg-black p-4 text-white fixed w-full top-0">
       <ul className="flex space-x-4">
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
@@ -14,4 +14,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;  // ✅ Ensure default export
+export default Navbar;
