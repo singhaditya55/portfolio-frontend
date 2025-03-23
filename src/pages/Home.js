@@ -7,7 +7,7 @@ export default function Home() {
 
   useEffect(() => {
     // Fetch user data from API
-    fetch("http://localhost:5000/api/users")
+    fetch("https://portfolio-backend-7y0o.onrender.com/api/users")
       .then((response) => response.json())
       .then((data) => setUser(data[0])) // Assuming first object contains user details
       .catch((error) => console.error("Error fetching user data:", error));
@@ -30,7 +30,7 @@ export default function Home() {
         {/* Profile Image */}
         {user && (
           <img
-            src={`http://localhost:5000/${user.profile_image}`}
+            src={`https://portfolio-backend-7y0o.onrender.com/${user.profile_image}`}
             alt="Profile"
             className="w-32 h-32 rounded-full border-4 border-gray-500 shadow-lg"
           />

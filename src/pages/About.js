@@ -31,7 +31,7 @@ export default function About() {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/users")
+    axios.get("https://portfolio-backend-7y0o.onrender.com/api/users")
       .then((res) => {
         if (Array.isArray(res.data) && res.data.length > 0) {
           setUser(res.data[0]);
@@ -56,7 +56,7 @@ export default function About() {
             {/* Profile Section */}
             <div className="text-center">
               <img
-                src={`http://localhost:5000/${user.profile_image}`}
+                src={`https://portfolio-backend-7y0o.onrender.com/${user.profile_image}`}
                 alt="Profile"
                 className="w-32 h-32 rounded-full mx-auto border-4 border-gray-700 shadow-md"
               />

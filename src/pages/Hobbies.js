@@ -6,7 +6,7 @@ export default function Hobbies() {
   const [hobbies, setHobbies] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/hobbies").then((res) => {
+    axios.get("hhttps://portfolio-backend-7y0o.onrender.com/api/hobbies").then((res) => {
       setHobbies(res.data);
     });
   }, []);

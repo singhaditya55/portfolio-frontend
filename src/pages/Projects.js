@@ -6,7 +6,7 @@ export default function Projects() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/projects").then((res) => {
+    axios.get("https://portfolio-backend-7y0o.onrender.com/api/projects").then((res) => {
       setProjects(res.data);
     });
   }, []);
@@ -23,7 +23,7 @@ export default function Projects() {
           {projects.map((project) => (
             <div key={project.id} className="p-4 bg-gray-900 text-white rounded-lg shadow-md hover:scale-105 transition transform duration-300">
               <img 
-                src={`http://localhost:5000/${project.image}`} 
+                src={`https://portfolio-backend-7y0o.onrender.com/${project.image}`} 
                 alt={project.title} 
                 className="w-full h-40 object-cover rounded-lg"
               />
