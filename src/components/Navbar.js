@@ -12,13 +12,13 @@ const Navbar = () => {
               <a href="/" className="hover:text-gray-400 transition duration-300">Home</a>
             </li>
             <li>
-              <a href="/about" className="hover:text-gray-400 transition duration-300">About</a>
+              <a href="#/about" className="hover:text-gray-400 transition duration-300">About</a>
             </li>
             <li>
-              <a href="/projects" className="text-blue-400 font-semibold">Projects</a> {/* Current Page Highlighted */}
+              <a href="#/projects" className="text-blue-400 font-semibold">Projects</a> {/* Current Page Highlighted */}
             </li>
             <li>
-              <a href="/hobbies" className="hover:text-gray-400 transition duration-300">Hobbies</a>
+              <a href="#/hobbies" className="hover:text-gray-400 transition duration-300">Hobbies</a>
             </li>
           </ul>
         </div>
