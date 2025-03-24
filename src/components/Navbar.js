@@ -10,16 +10,16 @@ const Navbar = () => {
           <h1 className="text-2xl font-bold text-white">AS</h1>
           <ul className="flex space-x-6">
             <li>
-              <Link to="/" className="hover:text-gray-400 transition duration-300">Home</Link>
+              <a href="/" className="hover:text-gray-400 transition duration-300">Home</a>
             </li>
             <li>
-              <Link to="/about" className="hover:text-gray-400 transition duration-300">About</Link>
+              <a href="/about" className="hover:text-gray-400 transition duration-300">About</a>
             </li>
             <li>
-              <Link to="/projects" className="text-blue-400 font-semibold">Projects</Link> {/* Current Page Highlighted */}
+              <a href="/projects" className="text-blue-400 font-semibold">Projects</a> {/* Current Page Highlighted */}
             </li>
             <li>
-              <Link to="/hobbies" className="hover:text-gray-400 transition duration-300">Hobbies</Link>
+              <a href="/hobbies" className="hover:text-gray-400 transition duration-300">Hobbies</a>
             </li>
           </ul>
         </div>
