@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar";
 export default function About() {
   const [user, setUser] = useState(null);
 
-  // Skill Links & Logos
   const skillLinks = {
     "Node.js": "https://www.w3schools.com/nodejs/",
     "Laravel PHP": "https://laravel.com/",
@@ -46,10 +45,8 @@ export default function About() {
 
   return (
     <div className="bg-black min-h-screen text-white">
-      {/* Navbar */}
       <Navbar />
 
-      {/* Centered Content */}
       <div className="max-w-7xl mx-auto pt-24 p-6 bg-gradient-to-b from-green-900 to-gray-800">
         {user ? (
           <div>
@@ -85,7 +82,11 @@ export default function About() {
                 <div key={index} className="mt-3 p-4 bg-black rounded-lg shadow-md">
                   <h3 className="text-lg font-semibold">{job.position} - {job.company}</h3>
                   <p className="text-gray-400">{job.duration}</p>
-                  <p className="mt-2 text-gray-300">{job.description}</p>
+                  <ul className="mt-2 text-gray-300 list-disc pl-5">
+                    {job.description.split(". ").map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </section>
@@ -102,14 +103,14 @@ export default function About() {
             </section>
 
             {/* Certifications */}
-          <section className="mt-8">
-            <h2 className="text-2xl font-semibold border-b-2 border-gray-500 pb-2">Certifications</h2>
-            <ul className="mt-2 text-gray-300">
-              {user.certifications?.map((cert, index) => (
-                <li key={index} className="mt-1">✅ {cert}</li>
-              ))}
-            </ul>
-          </section>
+            <section className="mt-8">
+              <h2 className="text-2xl font-semibold border-b-2 border-gray-500 pb-2">Certifications</h2>
+              <ul className="mt-2 text-gray-300 list-disc pl-5">
+                {user.certifications?.map((cert, index) => (
+                  <li key={index}>{cert}</li>
+                ))}
+              </ul>
+            </section>
 
             {/* Projects */}
             <section className="mt-8">
@@ -118,7 +119,12 @@ export default function About() {
                 <div key={index} className="mt-3 p-4 bg-black rounded-lg shadow-md">
                   <h3 className="text-lg font-semibold">{project.title}</h3>
                   <p className="text-gray-400">{project.technologies}</p>
-                  <p className="mt-2 text-gray-300">{project.description}</p>
+                  <p className="text-gray-400">Duration: {project.duration} | Team Size: {project.team_size}</p>
+                  <ul className="mt-2 text-gray-300 list-disc pl-5">
+                    {project.description.split(". ").map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </section>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -17,7 +17,7 @@ export default function Home() {
     <div
       className="h-screen w-screen flex flex-col justify-center items-center text-white relative bg-black"
       style={{
-        backgroundImage: "url('/assets/background.gif')",
+        backgroundImage: "url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMG43Y2tucDJwcHdrN3Z1cDZ1d2pzYTVwemk4bHY1dWVrdWJnaWlwMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IcZhFmufozDCij3p22/giphy.gif')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -89,6 +89,22 @@ export default function Home() {
             className="hover:text-blue-600 transition-colors duration-300"
           >
             <FaFacebook />
+          </a>
+          <a
+    href="https://github.com/singhaditya55"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-gray-400 transition-colors duration-300"
+  >
+    <FaGithub />
+  </a>
+  <a
+            href="https://www.linkedin.com/in/aditya-singh-a6a7a1196/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-500 transition-colors duration-300"
+          >
+            <FaLinkedin />
           </a>
         </div>
       </div>
