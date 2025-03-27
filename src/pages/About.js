@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar"; 
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const IMAGE_BASE_URL = process.env.REACT_APP_IMG_BASE_URL;
+
 export default function About() {
   const [user, setUser] = useState(null);
 
@@ -30,7 +33,7 @@ export default function About() {
   };
 
   useEffect(() => {
-    axios.get("https://portfolio-backend-7y0o.onrender.com/api/users")
+    axios.get(`${API_BASE_URL}/users`)
       .then((res) => {
         if (Array.isArray(res.data) && res.data.length > 0) {
           setUser(res.data[0]);
@@ -53,7 +56,7 @@ export default function About() {
             {/* Profile Section */}
             <div className="text-center">
               <img
-                src={`https://portfolio-backend-7y0o.onrender.com/${user.profile_image}`}
+                src={`${IMAGE_BASE_URL}/${user.profile_image}`}
                 alt="Profile"
                 className="w-32 h-32 rounded-full mx-auto border-4 border-gray-700 shadow-md"
               />
@@ -102,15 +105,17 @@ export default function About() {
               ))}
             </section>
 
-            {/* Certifications */}
-            <section className="mt-8">
-              <h2 className="text-2xl font-semibold border-b-2 border-gray-500 pb-2">Certifications</h2>
-              <ul className="mt-2 text-gray-300 list-disc pl-5">
-                {user.certifications?.map((cert, index) => (
-                  <li key={index}>{cert}</li>
-                ))}
-              </ul>
-            </section>
+          {/* Certifications */}
+<section className="mt-8">
+  <h2 className="text-2xl font-semibold border-b-2 border-gray-500 pb-2">Certifications</h2>
+  <div className="mt-4 space-y-3">
+    {user.certifications?.map((cert, index) => (
+      <div key={index} className="p-4 bg-black rounded-lg shadow-md">
+        <p className="text-white">{cert}</p>
+      </div>
+    ))}
+  </div>
+</section>
 
             {/* Projects */}
             <section className="mt-8">
@@ -119,7 +124,6 @@ export default function About() {
                 <div key={index} className="mt-3 p-4 bg-black rounded-lg shadow-md">
                   <h3 className="text-lg font-semibold">{project.title}</h3>
                   <p className="text-gray-400">{project.technologies}</p>
-                  <p className="text-gray-400">Duration: {project.duration} | Team Size: {project.team_size}</p>
                   <ul className="mt-2 text-gray-300 list-disc pl-5">
                     {project.description.split(". ").map((point, i) => (
                       <li key={i}>{point}</li>

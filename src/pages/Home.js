@@ -1,27 +1,67 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaTwitter, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaFacebook, FaGithub, FaLinkedin, FaSun, FaMoon } from "react-icons/fa";
+
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const IMAGE_BASE_URL = process.env.REACT_APP_IMG_BASE_URL;
 
 export default function Home() {
   const [user, setUser] = useState(null);
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("theme") !== "light"; // Default dark
+  });
 
   useEffect(() => {
-    // Fetch user data from API
-    fetch("https://portfolio-backend-7y0o.onrender.com/api/users")
+    fetch(`${API_BASE_URL}/users`)
       .then((response) => response.json())
-      .then((data) => setUser(data[0])) // Assuming first object contains user details
+      .then((data) => {
+        console.log("API Response:", data);
+        
+        if (Array.isArray(data) && data.length > 0) {
+          setUser(data[0]);
+        } else {
+          console.error("Unexpected API response format");
+        }
+      })
       .catch((error) => console.error("Error fetching user data:", error));
   }, []);
 
+    // Toggle Theme Mode
+    const toggleTheme = () => {
+      const newTheme = darkMode ? "light" : "dark";
+      setDarkMode(!darkMode);
+      localStorage.setItem("theme", newTheme);
+      
+      // Toggle class for dark mode
+      if (newTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    };
+    
+
   return (
     <div
-      className="h-screen w-screen flex flex-col justify-center items-center text-white relative bg-black"
-      style={{
-        backgroundImage: "url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMG43Y2tucDJwcHdrN3Z1cDZ1d2pzYTVwemk4bHY1dWVrdWJnaWlwMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IcZhFmufozDCij3p22/giphy.gif')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+  className={`h-screen flex flex-col justify-center items-center text-white relative transition-all duration-500 ${
+    darkMode ? "bg-black" : "bg-gray-100"
+  }`}
+  style={{
+    backgroundImage: darkMode
+      ? "url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMG43Y2tucDJwcHdrN3Z1cDZ1d2pzYTVwemk4bHY1dWVrdWJnaWlwMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IcZhFmufozDCij3p22/giphy.gif')"
+      : "url('https://media.giphy.com/media/TlK63EChAGgxq7kTcFW/giphy.gif?cid=790b761192wku6v9apynexc9n57l3bdtgw4xwv8llccrx86p&ep=v1_gifs_search&rid=giphy.gif&ct=g')", // Light mode background
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+       {/* Toggle Button */}
+       <button
+  onClick={toggleTheme}
+  className="absolute top-5 right-5 z-50 p-3 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white shadow-md transition duration-300 cursor-pointer"
+>
+  {darkMode ? <FaSun className="text-yellow-400 text-2xl" /> : <FaMoon className="text-gray-600 text-2xl" />}
+</button>
+
       {/* Overlay for better readability */}
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
@@ -30,7 +70,7 @@ export default function Home() {
         {/* Profile Image */}
         {user && (
           <img
-            src={`https://portfolio-backend-7y0o.onrender.com/${user.profile_image}`}
+            src={`${IMAGE_BASE_URL}/${user.profile_image}`}
             alt="Profile"
             className="w-32 h-32 rounded-full border-4 border-gray-500 shadow-lg"
           />

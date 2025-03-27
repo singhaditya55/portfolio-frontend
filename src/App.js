@@ -20,20 +20,4 @@ function App() {
   );
 }
 
-// function App() {
-//   return (
-//     <BrowserRouter>
-//       {/* <div className="pt-10"> */}
-//         <Routes>
-//           <Route path="/" element={<Home />} />
-//           <Route path="/about" element={<About />} />
-//           <Route path="/projects" element={<Projects />} />
-//           <Route path="/hobbies" element={<Hobbies />} />
-//         </Routes>
-//       {/* </div> */}
-//       <Footer />
-//     </BrowserRouter>
-//   );
-// }
-
 export default App;

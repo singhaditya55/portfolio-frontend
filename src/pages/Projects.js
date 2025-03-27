@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar"; // Importing Navbar Component
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const IMAGE_BASE_URL = process.env.REACT_APP_IMG_BASE_URL;
+
 export default function Projects() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    axios.get("https://portfolio-backend-7y0o.onrender.com/api/projects").then((res) => {
+    axios.get(`${API_BASE_URL}/projects`).then((res) => {
       setProjects(res.data);
     });
   }, []);
@@ -23,7 +26,7 @@ export default function Projects() {
           {projects.map((project) => (
             <div key={project.id} className="p-4 bg-gray-900 text-white rounded-lg shadow-md hover:scale-105 transition transform duration-300">
               <img 
-                src={`https://portfolio-backend-7y0o.onrender.com/${project.image}`} 
+                src={`${IMAGE_BASE_URL}/${project.image}`} 
                 alt={project.title} 
                 className="w-full h-40 object-cover rounded-lg"
               />

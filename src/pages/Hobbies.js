@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar"; // Importing Navbar Component
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 export default function Hobbies() {
   const [hobbies, setHobbies] = useState([]);
 
   useEffect(() => {
-    axios.get("https://portfolio-backend-7y0o.onrender.com/api/hobbies").then((res) => {
+    axios.get(`${API_BASE_URL}/hobbies`).then((res) => {
       setHobbies(res.data);
     });
   }, []);

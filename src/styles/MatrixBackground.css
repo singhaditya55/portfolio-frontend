@@ -1,0 +1,77 @@
+/* MatrixBackground.css */
+
+@keyframes matrixAnimation {
+    0% {
+      transform: translateY(-100%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+  
+  .matrix-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5%; /* Ensure columns are at the sides */
+  }
+  
+  .matrix-column {
+    position: relative;
+    width: 20px;
+    font-family: monospace;
+    color: #00ff00; /* Neon green */
+    font-size: 18px;
+    opacity: 0.8;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .matrix-column span {
+    display: block;
+    opacity: 0;
+    animation: matrixAnimation 3s linear infinite;
+  }
+  
+  /* Random distribution of columns across the screen */
+  .matrix-column:nth-child(odd) {
+    left: calc(5% + 10px);
+  }
+  
+  .matrix-column:nth-child(even) {
+    right: calc(5% + 10px);
+  }
+  
+  /* Faster animation speed and more variation */
+  .matrix-column span:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .matrix-column span:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  .matrix-column span:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .matrix-column span:nth-child(4) {
+    animation-delay: 0.45s;
+  }
+  .matrix-column span:nth-child(5) {
+    animation-delay: 0.6s;
+  }
+  .matrix-column span:nth-child(6) {
+    animation-delay: 0.75s;
+  }
+  .matrix-column span:nth-child(7) {
+    animation-delay: 0.9s;
+  }
+  .matrix-column span:nth-child(8) {
+    animation-delay: 1.05s;
+  }
+  

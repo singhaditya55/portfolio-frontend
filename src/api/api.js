@@ -1,10 +1,6 @@
 import axios from "axios";
 
-//Local
-// const API_BASE_URL = "http://localhost:5000/api"; // Change this to your backend URL
-
-//PROD
-const API_BASE_URL = "https://portfolio-backend-7y0o.onrender.com/api";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; 
 
 export const fetchProjects = async () => {
   try {
