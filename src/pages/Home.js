@@ -104,8 +104,8 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* Social Media Links */}
-        <div className="mt-6 flex gap-6 text-xl">
+                {/* Social Media Links */}
+                <div className="mt-6 flex gap-6 text-xl">
           <a
             href="https://www.instagram.com/singhaditya5"
             target="_blank"
@@ -131,14 +131,14 @@ export default function Home() {
             <FaFacebook />
           </a>
           <a
-    href="https://github.com/singhaditya55"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hover:text-gray-400 transition-colors duration-300"
-  >
-    <FaGithub />
-  </a>
-  <a
+            href="https://github.com/singhaditya55"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-400 transition-colors duration-300"
+          >
+            <FaGithub />
+          </a>
+          <a
             href="https://www.linkedin.com/in/aditya-singh-a6a7a1196/"
             target="_blank"
             rel="noopener noreferrer"
@@ -147,6 +147,20 @@ export default function Home() {
             <FaLinkedin />
           </a>
         </div>
+
+        {/* Buy Me a Coffee Button - With More Gap */}
+        <div className="mt-10 flex items-center gap-3">
+          <a
+            href="https://www.buymeacoffee.com/singhaditya55" // Replace with your actual link
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center w-9 h-9 bg-yellow-500 rounded-full text-black font-semibold shadow-lg hover:scale-105 transition-transform duration-300"
+          >
+            ☕
+          </a>
+          <span className="text-white font-medium">Buy Me a Coffee</span>
+        </div>
+
       </div>
     </div>
   );
