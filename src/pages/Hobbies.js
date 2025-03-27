@@ -5,9 +5,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-const RAWG_API_KEY = process.env.REACT_APP_RAWG_API_KEY;
-
-
 export default function Hobbies() {
   const [activeTab, setActiveTab] = useState("Photography");
   const [games, setGames] = useState([]);
@@ -25,7 +22,7 @@ useEffect(() => {
 // ✅ Corrected: Fetch Games from RAWG API
 useEffect(() => {
   axios
-    .get(`https://api.rawg.io/api/games?key=${RAWG_API_KEY}`)
+    .get(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_RAWG_API_KEY}`)
     .then((res) => {
       console.log("RAWG Games Data:", res.data.results);
       setGames(res.data.results);
