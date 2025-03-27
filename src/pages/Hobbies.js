@@ -10,7 +10,6 @@ const RAWG_API_KEY = process.env.REACT_APP_RAWG_API_KEY;
 
 export default function Hobbies() {
   const [activeTab, setActiveTab] = useState("Photography");
-  const [instagramPosts, setInstagramPosts] = useState([]);
   const [games, setGames] = useState([]);
 
 // ✅ Corrected: Use a proper Instagram API (Replace with a working endpoint)
