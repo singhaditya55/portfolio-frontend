@@ -43,7 +43,7 @@ export default function Home() {
 
   return (
     <div
-  className={`h-screen flex flex-col justify-center items-center text-white relative transition-all duration-500 ${
+  className={`min-h-screen overflow-hidden flex flex-col justify-center items-center text-white relative transition-all duration-500 ${
     darkMode ? "bg-black" : "bg-gray-100"
   }`}
   style={{

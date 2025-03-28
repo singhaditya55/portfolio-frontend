@@ -27,21 +27,22 @@ export default function Contact() {
       await axios.post(`${API_BASE_URL}/contact`, formData);
       setSubmitted(true); // Show success message
       setFormData({ name: "", email: "", message: "" }); // Clear form
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("Something went wrong, please try again.");
-    }
-  };
+
+    // Hide success message after 3 seconds
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 2000);
+  } catch (error) {
+    console.error("Something went wrong:", error);
+  }
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white flex flex-col items-center justify-center p-6">
       <Navbar />
       
       <motion.h1
-        className="text-4xl font-bold mb-8 text-yellow-400"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        className="text-4xl font-bold mb-8 text-gray-400"
       >
         Get in Touch
       </motion.h1>
