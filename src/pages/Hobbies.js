@@ -36,7 +36,7 @@ useEffect(() => {
       <Navbar />
 
       <div className="p-6 pt-24 max-w-5xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-6">My Hobbies</h1>
+        {/* <h1 className="text-4xl font-bold text-center mb-6">My Hobbies</h1> */}
 
         {/* Tabs */}
         <div className="flex justify-center space-x-6 mb-6">

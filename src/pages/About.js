@@ -105,14 +105,30 @@ export default function About() {
               ))}
             </section>
 
-          {/* Certifications */}
-<section className="mt-8">
-  <h2 className="text-2xl font-semibold border-b-2 border-gray-500 pb-2">Certifications</h2>
-  <div className="mt-4 space-y-3">
+{/* Certifications */}
+<section className="mt-12">
+  <h2 className="text-2xl font-semibold border-b-2 border-gray-500 pb-2">
+    Certifications
+  </h2>
+
+  <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
     {user.certifications?.map((cert, index) => (
-      <div key={index} className="p-4 bg-black rounded-lg shadow-md">
-        <p className="text-white">{cert}</p>
-      </div>
+      <a
+        key={index}
+        href={cert.url || "#"}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-black hover:bg-gray-700 p-5 rounded-xl shadow-lg transform hover:scale-105 transition duration-300"
+      >
+        <div className="flex items-center space-x-3">
+          <img
+            src="/assets/learning.png"
+            alt="cert-icon"
+            className="w-8 h-8"
+          />
+          <span className="text-white font-medium">{cert.name}</span>
+        </div>
+      </a>
     ))}
   </div>
 </section>

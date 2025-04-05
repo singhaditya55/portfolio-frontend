@@ -150,16 +150,16 @@ export default function Home() {
 
         {/* Buy Me a Coffee Button - With More Gap */}
         <div className="mt-10 flex items-center gap-3">
-          <a
-            href="https://www.buymeacoffee.com/singhaditya5" // Replace with your actual link
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center w-9 h-9 bg-yellow-500 rounded-full text-black font-semibold shadow-lg hover:scale-105 transition-transform duration-300"
-          >
-            ☕
-          </a>
-          <span className="text-white font-medium">Buy Me a Coffee</span>
-        </div>
+  <a
+    href="https://www.buymeacoffee.com/singhaditya5"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 transform hover:scale-105"
+  >
+    ☕ Buy Me a Coffee
+  </a>
+</div>
+
 
       </div>
     </div>
